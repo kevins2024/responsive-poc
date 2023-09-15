@@ -10,8 +10,6 @@ function App() {
   const [showScreenSize, setShowScreenSize] = useState(false);
   const MOCK_FACTORY_LAYOUT = "MockFactoryLayout";
   const [showMockFactory, setShowMockFactory] = useState(false);
-  const MEDIA_QUERY_POC = "MediaQueryPoc";
-  const [showMediaQueryPoc, setShowMediaQueryPoc] = useState(true);
 
   function screenSizeClicked() {
     disableAllExcept(SCREEN_SIZE);
@@ -40,9 +38,8 @@ function App() {
         <button onClick={screenSizeClicked}>Screen Size Tester</button>
       </header>
       {
-        showScreenSize && (
-          <GetScreenSize />
-        ) /*  this component shows how to get screen size information into React */
+        /*  this component shows how to get screen size information into React */
+        showScreenSize && <GetScreenSize />
       }
       {showMockFactory && (
         <main className="App-main">

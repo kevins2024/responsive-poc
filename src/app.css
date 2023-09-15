@@ -12,20 +12,37 @@ p {
 }
 
 /* Phone */
-.App-main {
-  background-color: greenyellow;
+@media (orientation: portrait) {
+  .App-main {
+    background-color: greenyellow;
+  }
 }
 
-/* Tablet */
-@media screen and (min-width: 400px) {
+/* Phone Landscape */
+@media (orientation: landscape) {
+  .App-main {
+    background-color: green;
+    color: white;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 400px) and (orientation: portrait) {
   .App-main {
     background-color: brown;
   }
 }
 
-/* Everything larger than tablet */
-@media screen and (min-width: 850px) {
+/* Tablet Landscape */
+@media (min-height: 400px) and (orientation: landscape) {
   .App-main {
-    background-color: blanchedalmond;
+    background-color: burlywood;
+  }
+}
+
+/* Everything larger than tablet */
+@media (min-width: 850px) and (min-height: 850px) {
+  .App-main {
+    background-color: cyan;
   }
 }
