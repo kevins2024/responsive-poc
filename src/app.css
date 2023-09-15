@@ -1,3 +1,31 @@
 p {
-    background-color: aquamarine;
+  background-color: aquamarine;
+}
+
+.icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.App-main {
+  display: flex;
+}
+
+/* Phone */
+.App-main {
+  background-color: greenyellow;
+}
+
+/* Tablet */
+@media screen and (min-width: 400px) {
+  .App-main {
+    background-color: brown;
+  }
+}
+
+/* Everything larger than tablet */
+@media screen and (min-width: 850px) {
+  .App-main {
+    background-color: blanchedalmond;
+  }
 }
