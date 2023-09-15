@@ -9,7 +9,7 @@ function App() {
   const SCREEN_SIZE = "ScreenSize";
   const [showScreenSize, setShowScreenSize] = useState(false);
   const MOCK_FACTORY_LAYOUT = "MockFactoryLayout";
-  const [showMockFactory, setShowMockFactory] = useState(false);
+  const [showMockFactory, setShowMockFactory] = useState(true);
 
   function screenSizeClicked() {
     disableAllExcept(SCREEN_SIZE);
@@ -33,7 +33,6 @@ function App() {
   return (
     <div className="App-container">
       <header className="App-header">
-        <p>This page exists to test resizing of the viewport.</p>
         <button onClick={mockFactoryClicked}>Mock Factory Layout</button>
         <button onClick={screenSizeClicked}>Screen Size Tester</button>
       </header>
@@ -44,17 +43,26 @@ function App() {
       {showMockFactory && (
         <main className="App-main">
           <div className="App-3d-viewer">3d viewer</div>
-          <div className="App-edit-items-form">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="App-item">
-                Item {i}
+          <div className="App-sidebar">
+            <div className="App-edit-items-form">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="App-item">
+                  Item {i}
+                </div>
+              ))}
+            </div>
+            <div className="App-another-form">
+              <div>
+                <label for="textbox">Label for input</label>
+                <br />
+                <input name="textbox" type="text" />
               </div>
-            ))}
-          </div>
-          <div className="App-button-bar">
-            <img src={gearicon} className="icon" alt="settings button" />
-            <img src={searchicon} className="icon" alt="search button" />
-            <img src={homeicon} className="icon" alt="home button" />
+              <div className="App-button-bar">
+                <img src={gearicon} className="icon" alt="settings button" />
+                <img src={searchicon} className="icon" alt="search button" />
+                <img src={homeicon} className="icon" alt="home button" />
+              </div>
+            </div>
           </div>
         </main>
       )}
