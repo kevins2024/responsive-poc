@@ -4,12 +4,16 @@ import searchicon from "./resources/searchicon.png";
 import homeicon from "./resources/homeicon.png";
 import { useState } from "react";
 import GetScreenSize from "./component-heap/GetScreenSize";
+import MockFactoryNoCss from "./component-heap/MockFactoryNoCss";
+import DesktopExtraPanel from "./component-heap/DesktopExtraPanel";
 
 function App() {
   const SCREEN_SIZE = "ScreenSize";
   const [showScreenSize, setShowScreenSize] = useState(false);
   const MOCK_FACTORY_LAYOUT = "MockFactoryLayout";
   const [showMockFactory, setShowMockFactory] = useState(true);
+  const MOCK_FACTORY_LAYOUT2 = "MockFactoryLayout2";
+  const [showMockFactory2, setShowMockFactory2] = useState(false);
 
   function screenSizeClicked() {
     disableAllExcept(SCREEN_SIZE);
@@ -21,6 +25,11 @@ function App() {
     setShowMockFactory(true);
   }
 
+  function mockFactory2Clicked() {
+    disableAllExcept(MOCK_FACTORY_LAYOUT2);
+    setShowMockFactory2(true);
+  }
+
   function disableAllExcept(excepted) {
     if (excepted !== SCREEN_SIZE) {
       setShowScreenSize(false);
@@ -28,20 +37,22 @@ function App() {
     if (excepted !== MOCK_FACTORY_LAYOUT) {
       setShowMockFactory(false);
     }
+    if (excepted !== MOCK_FACTORY_LAYOUT2) {
+      setShowMockFactory2(false);
+    }
   }
 
   return (
     <div className="App-container">
       <header className="App-header">
         <button onClick={mockFactoryClicked}>Mock Factory Layout</button>
+        <button onClick={mockFactory2Clicked}>No Css Factory Layout</button>
         <button onClick={screenSizeClicked}>Screen Size Tester</button>
       </header>
-      {
-        /*  this component shows how to get screen size information into React */
-        showScreenSize && <GetScreenSize />
-      }
+      {showScreenSize && <GetScreenSize />}
       {showMockFactory && (
         <main className="App-main">
+          <DesktopExtraPanel />
           <div className="App-3d-viewer">3d viewer</div>
           <div className="App-sidebar">
             <div className="App-edit-items-form">
@@ -66,6 +77,7 @@ function App() {
           </div>
         </main>
       )}
+      {showMockFactory2 && <MockFactoryNoCss />}
     </div>
   );
 }

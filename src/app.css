@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 p {
   background-color: aquamarine;
 }
@@ -60,6 +64,11 @@ p {
   border: 1px solid black;
 }
 
+.DesktopExtraPanel-container {
+  visibility: hidden;
+  max-width: 0px;
+}
+
 /* This many breakpoints is overkill and will be hard to maintain. Having a default
 and one added breakpoint would be ideal, possibly two for portrait/landscape. */
 /* The order things are applied in is set to match the order items are defined in code
@@ -112,5 +121,19 @@ things to be applied on the least-powerful devices first. */
 @media (min-width: 850px) and (min-height: 850px) {
   .App-main {
     background-color: cyan;
+  }
+
+  .App-3d-viewer {
+    flex-basis: 60%;
+  }
+
+  .App-sidebar {
+    flex-basis: 20%;
+  }
+
+  .DesktopExtraPanel-container {
+    visibility: visible;
+    max-width: 30vw;
+    flex-basis: 20%;
   }
 }
