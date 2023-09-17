@@ -39,11 +39,11 @@ p {
 
 .App-3d-viewer {
   border: 1px solid black;
-  flex-basis: 66.6667%;
+  flex-basis: calc(100% * (2 / 3));
 }
 .App-sidebar {
   border: 1px solid white;
-  flex-basis: 33.3333%;
+  flex-basis: calc(100% * (1 / 3));
   display: flex;
   flex-direction: column;
 }
@@ -67,13 +67,14 @@ p {
 .DesktopExtraPanel-container {
   visibility: hidden;
   max-width: 0px;
+  flex-basis: 0;
 }
 
 /* This many breakpoints is overkill and will be hard to maintain. Having a default
 and one added breakpoint would be ideal, possibly two for portrait/landscape. */
 /* The order things are applied in is set to match the order items are defined in code
-and the other of which layouts are needed for the design. Production build should order 
-things to be applied on the least-powerful devices first. */
+and the order of which layouts are needed for the design. Production build should order 
+things to also be applied on the least-powerful devices first. */
 /* Phone */
 @media (orientation: portrait) {
   .App-main {

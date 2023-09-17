@@ -1,3 +1,14 @@
 .DesktopExtraPanel-container {
   background-color: darkmagenta;
+  display: flex;
+  flex-direction: column;
+}
+
+.DesktopExtraPanel-details {
+  flex-basis: 60%;
+  border: solid 1px black;
+}
+
+.DesktopExtraPanel-legend {
+  flex-basis: 40%;
 }
