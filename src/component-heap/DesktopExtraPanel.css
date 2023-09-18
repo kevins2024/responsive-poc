@@ -1,5 +1,5 @@
 .DesktopExtraPanel-container {
-  background-color: darkmagenta;
+  background-color: var(--analagous-complementary);
   display: flex;
   flex-direction: column;
 }

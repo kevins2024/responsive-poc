@@ -1,9 +1,17 @@
-body {
-  margin: 0px;
+:root {
+  --primary: #5c3b7a;
+  --complementary: #5a7a3b;
+  --analagous-primary: #3c3b7a;
+  --analagous-complementary: #7a3b79;
+  --triadic-one: #7a3b5a;
+  --triadic-two: #7a5c3b;
+  --bright-one: #c19ecd;
+  --bright-two: #d4e4c9;
+  color: white;
 }
 
-p {
-  background-color: aquamarine;
+body {
+  margin: 0px;
 }
 
 .icon {
@@ -13,28 +21,31 @@ p {
 
 .App-container {
   display: flex;
+  border: solid 3px var(--bright-one);
   flex-direction: column;
-  height: 100vh;
+  /* dvh explained here https://stackoverflow.com/a/72245072 */
+  height: 100dvh;
 }
 
 .App-header {
-  background-color: darkcyan;
+  background-color: var(--analagous-primary);
   display: flex;
+  border: solid 3px var(--bright-two);
   justify-content: center;
 }
 
 .App-header button {
-  background-color: antiquewhite;
-  color: darkolivegreen;
-  border: 2px solid azure;
+  background-color: var(--analagous-complementary);
   min-height: 5vh;
   padding: 0px 10px 0px 10px;
   margin: 2px;
+  color: white;
 }
 
 .App-main {
   flex-grow: 1;
   display: flex;
+  border: solid 3px var(--bright-one);
 }
 
 .App-3d-viewer {
@@ -45,20 +56,22 @@ p {
   border: 1px solid white;
   flex-basis: calc(100% * (1 / 3));
   display: flex;
+  border: solid 3px var(--bright-one);
   flex-direction: column;
 }
 .App-edit-items-form {
-  border: 1px dashed black;
+  border: 1px solid black;
   flex-basis: calc(100% * (2 / 3));
 }
 .App-another-form {
   flex-basis: calc(100% * (1 / 3));
   display: flex;
+  border: solid 3px var(--bright-two);
   flex-direction: column;
   justify-content: space-between;
 }
 .App-item {
-  border: 1px solid gold;
+  border: 1px solid black;
 }
 .App-button-bar {
   border: 1px solid black;
@@ -67,7 +80,9 @@ p {
 .DesktopExtraPanel-container {
   visibility: hidden;
   max-width: 0px;
+  max-height: 0px;
   flex-basis: 0;
+  border: none;
 }
 
 /* This many breakpoints is overkill and will be hard to maintain. Having a default
@@ -78,14 +93,14 @@ things to also be applied on the least-powerful devices first. */
 /* Phone */
 @media (orientation: portrait) {
   .App-main {
-    background-color: greenyellow;
+    background-color: var(--analagous-complementary);
   }
 }
 
 /* Phone Landscape */
 @media (orientation: landscape) {
   .App-main {
-    background-color: green;
+    background-color: var(--analagous-primary);
     color: white;
   }
 }
@@ -93,17 +108,17 @@ things to also be applied on the least-powerful devices first. */
 /* Tablet Portrait */
 @media (min-width: 400px) and (orientation: portrait) {
   .App-main {
-    background-color: brown;
+    background-color: var(--triadic-one);
     flex-direction: column;
   }
   .App-sidebar {
     border: 1px solid white;
-    flex-basis: 33.3333%;
+    flex-basis: calc(100% * (1 / 3));
     display: flex;
+    border: solid 3px var(--triadic-two);
     flex-direction: row; /* this is default but due to order, it has to override the none default higher up the page */
   }
   .App-edit-items-form {
-    border: 1px dashed black;
     flex-basis: 50%;
   }
   .App-another-form {
@@ -114,14 +129,15 @@ things to also be applied on the least-powerful devices first. */
 /* Tablet Landscape */
 @media (min-height: 400px) and (orientation: landscape) {
   .App-main {
-    background-color: burlywood;
+    background-color: var(--complementary);
   }
 }
 
 /* Everything larger than tablet */
 @media (min-width: 850px) and (min-height: 850px) {
   .App-main {
-    background-color: cyan;
+    background-color: var(--primary);
+    flex-direction: row;
   }
 
   .App-3d-viewer {
@@ -130,11 +146,21 @@ things to also be applied on the least-powerful devices first. */
 
   .App-sidebar {
     flex-basis: 20%;
+    flex-direction: column;
+  }
+
+  .App-edit-items-form {
+    flex-basis: calc(100% * (2 / 3));
+  }
+  .App-another-form {
+    flex-basis: calc(100% * (1 / 3));
   }
 
   .DesktopExtraPanel-container {
     visibility: visible;
     max-width: 30vw;
+    max-height: 100%;
     flex-basis: 20%;
+    border: solid 3px var(--bright-two);
   }
 }
