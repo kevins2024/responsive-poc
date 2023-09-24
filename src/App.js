@@ -64,7 +64,7 @@ function App() {
             </div>
             <div className="App-another-form">
               <div>
-                <label for="textbox">Label for input</label>
+                <label>Label for input</label>
                 <br />
                 <input name="textbox" type="text" />
               </div>
